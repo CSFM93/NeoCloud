@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Connect</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./fav.ico" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./account.css">
+</head>
+
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="width: 100%;">
+        <a class="navbar-brand" href="index.html">Neo Cloud</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto " id="profileOrSignIn">
+                <!-- <li class="nav-item dropdown " style="margin-right: 50px;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        username
+                    </a>
+                    <div class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" style="color: lightgray;" href="#">Posts</a>
+                        <a class="dropdown-item" style="color: lightgray;" href="#">Settings</a>
+                        <a class="dropdown-item" style="color: lightgray;" href="#">Logout</a>
+                    </div>
+                </li> -->
+                <!-- <li class="nav-item" style="margin-right: 50px;">
+                    <button class="btn btn-success" type="submit">Connect</button>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="padding : 2%; background-color: transparent; max-width: 50%;margin-top: 7%;">
+        <h5 style="color: white;">Account information</h5>
+        <div class="row">
+            <div>
+                <p style="float: left; color: lightgray; padding-top: 10px; padding-left: 8px;">Username:</p>
+                <p id="username" style="float: left; color: white; padding-top: 10px; margin-left: 10px;"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <p style="float: left; color: lightgray; padding-top: 10px; padding-left: 8px;">Address:</p>
+                <p id="accountAddress" style="float: left; color: white; padding-top: 10px; margin-left: 10px;"></p>
+                <button id="btnCopyAddress"
+                    style="color: white;float: right; background-color: transparent; margin-left: 20px;" class="btn "
+                    type="submit">
+                    <i class="fa fa-copy fa-lg" style="color: blueviolet;"></i>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <p style="float: left; color: lightgray; padding-top: 10px; padding-left: 8px;">Container ID:</p>
+                <p id="containerID" style="float: left; color: white; padding-top: 10px; margin-left: 10px;"></p>
+            </div>
+        </div>
+
+        <h5 style="color: white; margin-top: 20px;">Balance</h5>
+        <div class="row">
+            <div style="width: 100%; padding-left: 3%; ">
+                <div class="balance-card  card text-center rounded border border-success"
+                    style="width: 30%;float: left;height: 120px;">
+                    <div class="card-body">
+                        <h5 class="card-title text-success" style="color: white;font-weight: bold;">NEO</h5>
+                        <h6 id="neoBalance" style=" color: white;margin-top: 20px;">-</h6>
+                    </div>
+                </div>
+                <div class="balance-card  card text-center rounded border border-warning"
+                    style="width: 30%;float: left;height: 120px;">
+                    <div class="card-body">
+                        <h5 class="card-title text-warning" style="color: white;font-weight: bold;">Gas</h5>
+                        <h6 id="gasBalance" style=" color: white;margin-top: 20px;">-</h6>
+                    </div>
+                </div>
+                <div class="balance-card card text-center rounded border border-info"
+                    style="width: 30%;float: left;height: 120px;">
+                    <div class="card-body">
+                        <h5 class="card-title text-info" style="color: white;font-weight: bold;">NeoFs</h5>
+                        <h6 id="neoFsBalance" style=" color: white;margin-top: 20px;">-</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCOUNT SETTINGS -->
+        <h5 style="color: white; margin-top: 50px;">Account settings</h5>
+        <div class="row">
+            <div style="width: 100%;">
+                <div class="card rounded" style="width: 100%;height: 150px;">
+                    <div class="card-body">
+                        <h5 style="color: white;">Fund NeoFs account</h5>
+                        <div style="margin-top: 30px;">
+                            <input id="neoFsAmount" type="number" placeholder="Please enter the amount of Gas"
+                                style="display: inline-block;width: 40%;">
+                            <button id="btnFund" class="btn btn-info" type="submit"
+                                style="display: inline-block; margin-left: 10%;">Fund</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%;">
+                <div class="card rounded" style="width: 100%;height: 150px;">
+                    <div class="card-body">
+                        <h5 style="color: white;">Create container</h5>
+                        <div style="margin-top: 30px;">
+                            <button id="btnCreateContainer" class="btn btn-info" type="submit"
+                                style="display: inline-block;">Create container</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEO Cloud Profile SETTINGS -->
+        <h5 style="color: white; margin-top: 30px;">NEO Cloud profile settings</h5>
+        <div class="row">
+            <div style="width: 100%;">
+                <div class="card rounded" style="width: 100%;height: 280px;">
+                    <div class="card-body">
+                        <form id="formProfileSettings">
+                            <div class="form-group">
+                                <label for="inputUsername" style="color: white;">Username</label>
+                                <input type="text" class="form-control" id="inputUsername" placeholder="">
+                            </div>
+                            <button id="btnChangeUsername" type="submit" class="btn btn-primary">Change username</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="./browser.js" ></script>
+        <script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh5U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./account.js" ></script>
+
+
+</body>
+
+</html>

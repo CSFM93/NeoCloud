@@ -1,0 +1,34 @@
+body {
+    background-color: #27292d;
+}
+
+.card_post {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background-color: #474a51;
+}
+
+.container_post {
+    padding: 2px 16px;
+}
+
+.card_post p {
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+    vertical-align: middle;
+}
+
+
+.card_post:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.user_avatar {
+    vertical-align: middle;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+

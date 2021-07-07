@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Neocloud</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./fav.ico" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./post.css">
+</head>
+
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="width: 100%;">
+        <a class="navbar-brand" href="index.html">Neo Cloud</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul id="navbarLeftSide" class="navbar-nav mr-auto">
+                <!-- <li class="nav-item" style="margin-right: 50px;">
+                    <button class="btn btn-success" type="submit">New Post</button>
+                </li> -->
+            </ul>
+            <ul class="navbar-nav ml-auto " id="profileOrSignIn">
+                <!-- <li class="nav-item dropdown " style="margin-right: 50px;">
+                    <a class="nav-link dropdown-toggle" href="account.html" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: inline-block">
+                        ${account.user.username} <img id="userProfileImage" src="https://i.imgur.com/E0fXx4R_d.png?maxwidth=290&fidelity=grand"
+                        alt="Avatar" class="user_avatar" style="display: inline-block">
+                    </a>
+                    <div class="dropdown-menu bg-dark " aria-labelledby="navbarDropdown" style="margin-left: 90px;">
+                        <a class="dropdown-item" style="color: lightgray;" href="userPosts.html">Posts</a>
+                        <a class="dropdown-item" style="color: lightgray;" href="account.html">Settings</a>
+                        <a class="dropdown-item" style="color: lightgray;" onclick="logOut()">Logout</a>
+                    </div>
+                </li> -->
+                <!-- <li class="nav-item" style="margin-right: 50px;">
+                    <button class="btn btn-success" type="submit">Connect</button>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid " style="padding:2%; background-color: transparent; max-width: 80%; margin-top: 7%;">
+
+        <div style="max-width: 600px; margin: auto; padding: 50px; background-color: #212121;">
+            <div class="" style="max-width: 500px;">
+                <h3 id="postTitle" style="color: white;display: inline-block"></h3>
+                <div style="float: right;">
+                    <button id="btnPreviousPost" style="color: white;float: left; margin-right: 5px;"
+                        class="btn btn-primary" type="submit">
+                        <i class="fa fa-caret-left fa-lg" style="color: white;"></i>
+                    </button>
+                    <button id="btnNextPost" style="color: white;float: right; margin-left: 5px;"
+                        class="btn btn-primary" type="submit">
+                        <i class="fa fa-caret-right fa-lg" style="color: white;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="" style="max-width: 500px; margin-top: 10px; margin-bottom: 10px;">
+                <img id="postUserProfileImage" src="" alt="Avatar" class="user_avatar" style="display: inline-block">
+                <p id="username" style="color: green;display: inline-block"></p>
+
+                <button id="btnCopyUrl" style="color: white;float: right; background-color: transparent;" class="btn "
+                    type="submit">
+                    <i class="fa fa-copy fa-lg" style="color: blueviolet;"></i>
+                </button>
+            </div>
+            <div class="card_post" id="post_div"
+                style="height: 40%;max-width: 500px; max-height:700px ; margin: auto; ">
+                <!-- <img id="postFile" src="" style="width:100%"> -->
+            </div>
+            <div id="managePost"
+                style="height: 20%;max-width: 500px; max-height:200px ; margin-top: 20px; padding-left: 15% ">
+                <!-- <button id="btnSetProfilePic" style="color: white;" class="btn btn-info" type="submit">Set as profile
+                    pic</button>
+                <button id="btnChangeTitle" style="color: white; margin-left: 10px;" class="btn btn-info"
+                    type="submit">Edit title</button>
+                <button id="btnDelete" style="color: white; margin-left: 10px;" class="btn btn-danger"
+                    type="submit">Delete</button> -->
+            </div>
+
+
+
+            <!-- MODAL EDIT TITLE -->
+            <div id="modalEditPostTitle" class="modal fade bd-example-modal-lg show" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="card rounded" style="width: 100%;height: 180px; background-color:#474a51 ;">
+                            <div class="card-body">
+                                <form id="formEditPost">
+                                    <div class="form-group">
+                                        <label for="inputPostTitle" style="color: white;">Post title</label>
+                                        <input type="text" class="form-control-file bg-dark " style="color: white;"
+                                            id="inputPostTitle" placeholder="Enter the new title for your post">
+                                    </div>
+                                    <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL DELETE POST -->
+
+            <div id="modalDeletePost" class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="card rounded" style="width: 100%;height: 150px; background-color:#474a51 ;">
+                            <div class="card-body">
+                                <div style="width: 80%;margin: auto;">
+                                    <h4 style="color: white;">Are you sure that you want to delete this post?</h4>
+                                    <div style="width: 30%;margin: auto; padding-top: 20px;">
+                                        <button id="btnConfirmDelete" type="submit" class="btn btn-danger"
+                                            style="float: left;">Yes</button>
+                                        <button id="btnCancelDelete" type="submit" class="btn btn-success"
+                                            style="float: right;">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script type="text/javascript" src="./browser.js"></script>
+        <script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./post.js" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
