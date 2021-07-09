@@ -79,3 +79,11 @@ While building the Neo cloud platform I had to learn the following:
 ## What's next for Imgur clone powered by NeoFS
 In the long term, I plan to write a detailed tutorial teaching people how to build the entire project.
 
+
+## Special thanks
+I wouldn't be able to finish this project in such a short amount of time if it wasn't for:
+- https://neo.org/ tutorials and documentation
+- https://dojo.coz.io/ tutorials
+- https://github.com/CityOfZion/neon-js Javascript libraries
+- https://neospcc.medium.com/ NeoFs tutorials
+- Joe Stewart, known online as Hal0x2328 for helping me when I was stuck on Discord.
